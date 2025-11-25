@@ -23,32 +23,16 @@ A clean and extensible web application designed to help users track personal exp
 
 ---
 
-## 🧩 Project Structure
-
-personal-budget-manager/
-│── index.html
-│── style.css
-│── script.js
-│
-├── assets/
-│ ├── icons/
-│ └── images/
-│
-└── docs/
-└── README.md
-
----
-
 ## 🎯 Goals of This Project
 
 This application was developed as a practical exercise to consolidate knowledge in:
-- DOM manipulation
-- LocalStorage
-- Modular JavaScript
-- Event handling
-- API fetching
-- UI/UX improvements
-- Clean file organization and best practices
+- DOM manipulation  
+- LocalStorage  
+- Modular JavaScript  
+- Event handling  
+- API fetching  
+- UI/UX improvements  
+- Clean file organization and best practices  
 
 It is intentionally designed to grow over time, allowing future additions such as charts, statistics, authentication, cloud storage, or a backend.
 
@@ -56,16 +40,17 @@ It is intentionally designed to grow over time, allowing future additions such a
 
 ## 🧠 Future Improvements (Roadmap)
 
-- Expense charts (Pie/Bar)
-- Export to CSV
-- Custom categories
-- Monthly summaries
-- Better mobile UI
-- Multi-language support
-- Migration to React, Angular, or a backend API
+- Expense charts (Pie/Bar)  
+- Export to CSV  
+- Custom categories  
+- Monthly summaries  
+- Better mobile UI  
+- Multi-language support  
+- Migration to React, Angular, or a backend API  
 
 ---
 
 ## 💼 About the Developer
 
 This repository is part of my continuous learning journey as a software developer, focusing on clean architecture, maintainability, and practical real-world applications.
+
