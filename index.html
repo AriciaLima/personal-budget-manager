@@ -32,5 +32,57 @@
         <span id="current-date">--/--/----</span>
       </div>
     </header>
+
+    <!-- Form -->
+    <form id="expense-form">
+      <!-- Type: Income or Outcome -->
+      <select id="expense-type" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="income">Income</option>
+        <option value="outcome">Outcome</option>
+      </select>
+
+      <!-- Description -->
+      <input
+        type="text"
+        id="expense-description"
+        placeholder="Description"
+        required
+      />
+
+      <!-- Amount -->
+      <input
+        type="number"
+        id="expense-amount"
+        placeholder="Amount"
+        step="0.01"
+        required
+      />
+
+      <!-- Category -->
+      <select id="expense-category" required></select>
+
+      <!-- Submit button -->
+      <button type="submit">Add</button>
+    </form>
+
+    <!-- Summary -->
+    <div class="content-columns">
+      <!-- LEFT SIDE: SUMMARY -->
+      <section class="summary">
+        <h2>Summary</h2>
+        <p>Total Income: <span id="total-income">0</span> €</p>
+        <p>Total Outcome: <span id="total-outcome">0</span> €</p>
+        <p>
+          <strong>Balance: <span id="balance">0</span> €</strong>
+        </p>
+      </section>
+
+      <!-- RIGHT SIDE: TRANSACTIONS -->
+      <section class="transactions">
+        <h2>Transactions</h2>
+        <ul id="transaction-list"></ul>
+      </section>
+    </div>
   </body>
 </html>

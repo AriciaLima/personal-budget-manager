@@ -55,3 +55,102 @@ function fetchWeather() {
     })
 }
 fetchWeather()
+
+//Outcome and income
+const expenseForm = document.getElementById('expense-form')
+let expenses = []
+// =================================
+
+// Outcome and income
+const typeSelect = document.getElementById('expense-type')
+const categorySelect = document.getElementById('expense-category')
+
+const incomeCategories = ['Salary', 'Investment', 'Gift', 'Other']
+const outcomeCategories = [
+  'Food',
+  'Transport',
+  'Health',
+  'Entertainment',
+  'Shopping',
+  'Bills',
+  'Education',
+  'Travel',
+  'Other'
+]
+
+function updateCategories(type) {
+  categorySelect.innerHTML = ''
+  const list = type === 'income' ? incomeCategories : outcomeCategories
+  list.forEach(cat => {
+    const option = document.createElement('option')
+    option.value = cat
+    option.textContent = cat
+    categorySelect.appendChild(option)
+  })
+}
+
+typeSelect.addEventListener('change', () => {
+  updateCategories(typeSelect.value)
+})
+
+// FUNCTION THAT ADDS TO LIST
+function addTransactionToList(transaction) {
+  const li = document.createElement('li')
+
+  if (transaction.type === 'income') {
+    li.classList.add('income-item')
+  } else {
+    li.classList.add('outcome-item')
+  }
+
+  li.textContent = `[${transaction.type}] ${transaction.description} — ${transaction.amount}€ (${transaction.category}, ${transaction.date})`
+
+  document.getElementById('transaction-list').appendChild(li)
+}
+
+// SUBMIT FORM
+expenseForm.addEventListener('submit', function (event) {
+  event.preventDefault()
+
+  const type = document.getElementById('expense-type').value
+  const description = document.getElementById('expense-description').value
+  const amount = parseFloat(document.getElementById('expense-amount').value)
+  const category = document.getElementById('expense-category').value
+
+  const expense = {
+    id: Date.now(),
+    type,
+    description,
+    amount,
+    category,
+    date: new Date().toLocaleDateString()
+  }
+
+  expenses.push(expense)
+  addTransactionToList(expense)
+  updateSummary()
+
+  expenseForm.reset()
+  categorySelect.innerHTML = ''
+})
+
+//Summary
+function updateSummary() {
+  let totalIncome = 0
+  let totalOutcome = 0
+
+  expenses.forEach(item => {
+    if (item.type === 'income') {
+      totalIncome += item.amount
+    } else {
+      totalOutcome += item.amount
+    }
+  })
+
+  const balance = totalIncome - totalOutcome
+
+  document.getElementById('total-income').textContent = totalIncome.toFixed(2)
+  document.getElementById('total-outcome').textContent = totalOutcome.toFixed(2)
+  document.getElementById('balance').textContent = balance.toFixed(2)
+}
+updateSummary()
