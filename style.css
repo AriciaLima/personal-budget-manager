@@ -7,15 +7,36 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
   background: #282a36;
   color: #f8f8f2;
+  color-scheme: dark;
 }
 
 /* THEME TOGGLE BUTTON */
 #theme-toggle {
   cursor: pointer;
-  padding: 5px 10px;
-  background: transparent;
-  border: 1px solid currentColor;
-  border-radius: 4px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme='light'] #theme-toggle {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+body[data-theme='dark'] #theme-toggle {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#theme-toggle:active {
+  transform: scale(0.95);
 }
 
 /* TOP BAR + LAYOUT */
@@ -50,6 +71,69 @@ body[data-theme='dark'] .transactions {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* TRANSACTIONS HEADER */
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.transactions-header h2 {
+  margin: 0;
+}
+
+.transactions-header select {
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: inherit;
+  color: inherit;
+}
+
+body[data-theme='dark'] .transactions-header select {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+label,
+.filter-label {
+  color: inherit;
+}
+
+input,
+select {
+  background: inherit;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body[data-theme='dark'] input,
+body[data-theme='dark'] select {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f8f8f2;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body[data-theme='dark'] option {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+body[data-theme='dark'] input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* TRANSACTIONS LIST */
 #transaction-list {
   list-style: none;
@@ -57,31 +141,69 @@ body[data-theme='dark'] .transactions {
 }
 
 #transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
-  line-height: 1.3;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+  transition: background 0.2s ease;
+}
+
+#transaction-list li:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* DARK MODE: TRANSACTION ITEMS */
+body[data-theme='dark'] #transaction-list li {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme='dark'] #transaction-list li:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ITEM COLORS */
-.income-item {
+.income-item strong {
   color: #2ecc71;
 }
 
-.outcome-item {
+.outcome-item strong {
   color: #e74c3c;
+}
+
+.transaction-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#transaction-list li small {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.85em;
+}
+
+body[data-theme='dark'] #transaction-list li small {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* DELETE BUTTON */
 .delete-btn {
-  margin-left: 10px;
-  padding: 2px 6px;
-  background: #e74c3c;
-  color: white;
-  border: none;
+  padding: 4px 8px;
+  background: transparent;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.8em;
+  font-size: 0.9em;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .delete-btn:hover {
-  background: #c0392b;
+  background: #e74c3c;
+  color: white;
 }

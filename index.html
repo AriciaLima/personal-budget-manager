@@ -4,71 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Budget Manager</title>
+
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- HEADER -->
     <header class="top-bar">
       <div class="header-title">
         <h1>Personal Budget Manager</h1>
       </div>
 
-      <!-- Weather API -->
+      <!-- Weather -->
       <div class="header-weather">
         <span id="weather-city">--</span>
         <span>•</span>
         <span id="weather-temp">--°C</span>
       </div>
 
-      <!-- Theme Switcher -->
-      <div class="header-theme">
-        <button id="theme-toggle">🌓</button>
-      </div>
+      <!-- Theme Button -->
+      <button id="theme-toggle" class="header-theme">🌓</button>
 
-      <!-- Date and Time  -->
+      <!-- Date & Time -->
       <div class="header-datetime">
         <span id="current-time">--:--</span>
-        <span> | </span>
+        <span class="separator">|</span>
         <span id="current-date">--/--/----</span>
       </div>
     </header>
 
-    <!-- Form -->
-    <form id="expense-form">
-      <!-- Type: Income or Outcome -->
-      <select id="expense-type" required>
-        <option value="" disabled selected>Select type</option>
-        <option value="income">Income</option>
-        <option value="outcome">Outcome</option>
-      </select>
+    <!-- FORM -->
+    <section class="form-section">
+      <form id="expense-form">
+        <!-- Type -->
+        <select id="expense-type" required>
+          <option value="" disabled selected>Select type</option>
+          <option value="income">Income</option>
+          <option value="outcome">Outcome</option>
+        </select>
 
-      <!-- Description -->
-      <input
-        type="text"
-        id="expense-description"
-        placeholder="Description"
-        required
-      />
+        <!-- Description -->
+        <input
+          type="text"
+          id="expense-description"
+          placeholder="Description"
+          required
+        />
 
-      <!-- Amount -->
-      <input
-        type="number"
-        id="expense-amount"
-        placeholder="Amount"
-        step="0.01"
-        required
-      />
+        <!-- Amount -->
+        <input
+          type="number"
+          id="expense-amount"
+          placeholder="Amount"
+          step="0.01"
+          required
+        />
 
-      <!-- Category -->
-      <select id="expense-category" required></select>
+        <!-- Category -->
+        <select id="expense-category" required></select>
 
-      <!-- Submit button -->
-      <button type="submit">Add</button>
-    </form>
+        <!-- Submit -->
+        <button type="submit">Add</button>
+      </form>
+    </section>
 
-    <!-- Summary -->
-    <div class="content-columns">
-      <!-- LEFT SIDE: SUMMARY -->
+    <!-- CONTENT COLUMNS -->
+    <main class="content-columns">
+      <!-- SUMMARY -->
       <section class="summary">
         <h2>Summary</h2>
         <p>Total Income: <span id="total-income">0</span> €</p>
@@ -78,27 +81,30 @@
         </p>
       </section>
 
-      <!-- RIGHT SIDE: TRANSACTIONS -->
+      <!-- TRANSACTIONS -->
       <section class="transactions">
         <div class="transactions-header">
           <h2>Transactions</h2>
-          <p>Outcome Filter</p>
-          <select id="filter-cat">
-            <option value="" selected>All</option>
-            <option value="Food">Food</option>
-            <option value="Transport">Transport</option>
-            <option value="Health">Health</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Bills">Bills</option>
-            <option value="Education">Education</option>
-            <option value="Travel">Travel</option>
-            <option value="Other">Other</option>
-          </select>
+
+          <div class="filter-group">
+            <label for="filter-cat" class="filter-label">Filter</label>
+            <select id="filter-cat">
+              <option value="" selected>All</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Health">Health</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Education">Education</option>
+              <option value="Travel">Travel</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
 
         <ul id="transaction-list"></ul>
       </section>
-    </div>
+    </main>
   </body>
 </html>
