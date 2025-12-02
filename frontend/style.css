@@ -180,6 +180,7 @@ body[data-theme='dark'] #transaction-list li:hover {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  flex: 1;
 }
 
 #transaction-list li small {
@@ -206,4 +207,26 @@ body[data-theme='dark'] #transaction-list li small {
 .delete-btn:hover {
   background: #e74c3c;
   color: white;
+}
+
+.edit-btn {
+  padding: 4px 8px;
+  background: transparent;
+  color: #3498db;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: #3498db;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
